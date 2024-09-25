@@ -1,0 +1,32 @@
+/*
+ * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+/******/ (() => { // webpackBootstrap
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./assets/js/main.js":
+/*!***************************!*\
+  !*** ./assets/js/main.js ***!
+  \***************************/
+/***/ (() => {
+
+eval("/*\r\n\tAstral by HTML5 UP\r\n\thtml5up.net | @ajlkn\r\n\tFree for personal and commercial use under the CCA 3.0 license (html5up.net/license)\r\n*/\n\n(function ($) {\n  var $window = $(window),\n    $body = $('body'),\n    $wrapper = $('#wrapper'),\n    $main = $('#main'),\n    $panels = $main.children('.panel'),\n    $nav = $('#nav'),\n    $nav_links = $nav.children('a');\n\n  //Firebase\n  var firebaseConfig = {\n    apiKey: \"AIzaSyCXpVfdcQJNAdF7ZfGdb2z1xKwmEIGIDC8\",\n    authDomain: \"resume-7d9a1.firebaseapp.com\",\n    databaseURL: \"https://resume-7d9a1-default-rtdb.europe-west1.firebasedatabase.app\",\n    projectId: \"resume-7d9a1\",\n    storageBucket: \"resume-7d9a1.appspot.com\",\n    messagingSenderId: \"299505482761\",\n    appId: \"1:299505482761:web:c71b7ac83a7ec34491ccd8\",\n    measurementId: \"G-E00DS8CQ4B\"\n  };\n  firebase.initializeApp(firebaseConfig);\n  var auth = firebase.auth();\n  var signIn = function signIn(email, password) {\n    auth.signInWithEmailAndPassword(email, password).then(function (userCredential) {\n      var user = userCredential.user;\n      console.log(\"Inicio de sesión exitoso:\", user);\n    })[\"catch\"](function (error) {\n      console.error(\"Error en el inicio de sesión:\", error);\n    });\n  };\n\n  // Breakpoints.\n  breakpoints({\n    xlarge: ['1281px', '1680px'],\n    large: ['981px', '1280px'],\n    medium: ['737px', '980px'],\n    small: ['361px', '736px'],\n    xsmall: [null, '360px']\n  });\n\n  // Play initial animations on page load.\n  $window.on('load', function () {\n    window.setTimeout(function () {\n      $body.removeClass('is-preload');\n    }, 100);\n  });\n\n  // Nav.\n  $nav_links.on('click', function (event) {\n    var href = $(this).attr('href');\n\n    // Not a panel link? Bail.\n    if (href.charAt(0) != '#' || $panels.filter(href).length == 0) return;\n\n    // Prevent default.\n    event.preventDefault();\n    event.stopPropagation();\n\n    // Change panels.\n    if (window.location.hash != href) window.location.hash = href;\n  });\n\n  // Panels.\n\n  // Initialize.\n  (function () {\n    var $panel, $link;\n\n    // Get panel, link.\n    if (window.location.hash) {\n      $panel = $panels.filter(window.location.hash);\n      $link = $nav_links.filter('[href=\"' + window.location.hash + '\"]');\n    }\n\n    // No panel/link? Default to first.\n    if (!$panel || $panel.length == 0) {\n      $panel = $panels.first();\n      $link = $nav_links.first();\n    }\n\n    // Deactivate all panels except this one.\n    $panels.not($panel).addClass('inactive').hide();\n\n    // Activate link.\n    $link.addClass('active');\n\n    // Reset scroll.\n    $window.scrollTop(0);\n  })();\n\n  // Hashchange event.\n  $window.on('hashchange', function (event) {\n    var $panel, $link;\n\n    // Get panel, link.\n    if (window.location.hash) {\n      $panel = $panels.filter(window.location.hash);\n      $link = $nav_links.filter('[href=\"' + window.location.hash + '\"]');\n\n      // No target panel? Bail.\n      if ($panel.length == 0) return;\n    }\n\n    // No panel/link? Default to first.\n    else {\n      $panel = $panels.first();\n      $link = $nav_links.first();\n    }\n\n    // Deactivate all panels.\n    $panels.addClass('inactive');\n\n    // Deactivate all links.\n    $nav_links.removeClass('active');\n\n    // Activate target link.\n    $link.addClass('active');\n\n    // Set max/min height.\n    $main.css('max-height', $main.height() + 'px').css('min-height', $main.height() + 'px');\n\n    // Delay.\n    setTimeout(function () {\n      // Hide all panels.\n      $panels.hide();\n\n      // Show target panel.\n      $panel.show();\n\n      // Set new max/min height.\n      $main.css('max-height', $panel.outerHeight() + 'px').css('min-height', $panel.outerHeight() + 'px');\n\n      // Reset scroll.\n      $window.scrollTop(0);\n\n      // Delay.\n      window.setTimeout(function () {\n        // Activate target panel.\n        $panel.removeClass('inactive');\n\n        // Clear max/min height.\n        $main.css('max-height', '').css('min-height', '');\n\n        // IE: Refresh.\n        $window.triggerHandler('--refresh');\n\n        // Unlock.\n        locked = false;\n      }, breakpoints.active('small') ? 0 : 500);\n    }, 250);\n  });\n\n  // IE: Fixes.\n  if (browser.name == 'ie') {\n    // Fix min-height/flexbox.\n    $window.on('--refresh', function () {\n      $wrapper.css('height', 'auto');\n      window.setTimeout(function () {\n        var h = $wrapper.height(),\n          wh = $window.height();\n        if (h < wh) $wrapper.css('height', '100vh');\n      }, 0);\n    });\n    $window.on('resize load', function () {\n      $window.triggerHandler('--refresh');\n    });\n\n    // Fix intro pic.\n    $('.panel.intro').each(function () {\n      var $pic = $(this).children('.pic'),\n        $img = $pic.children('img');\n      $pic.css('background-image', 'url(' + $img.attr('src') + ')').css('background-size', 'cover').css('background-position', 'center');\n      $img.css('visibility', 'hidden');\n    });\n  }\n  signIn(\"guestuser@gmail.com\", \"guestpassword\");\n})(jQuery);\n\n//# sourceURL=webpack:///./assets/js/main.js?");
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module can't be inlined because the eval devtool is used.
+/******/ 	var __webpack_exports__ = {};
+/******/ 	__webpack_modules__["./assets/js/main.js"]();
+/******/ 	
+/******/ })()
+;
