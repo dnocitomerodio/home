@@ -172,6 +172,11 @@
 				});
 		}
 
+		// Undo button
+		document.getElementById('undo').addEventListener('click', function() {
+			document.getElementById('web-frame').src = "https://dnocitomerodio.github.io/resume";
+		});
+
 		document.querySelector('form').addEventListener('submit', function(event) {
 			let name = document.querySelector('input[name="name"]').value;
 			let email = document.querySelector('input[name="email"]').value;

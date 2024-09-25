@@ -1611,7 +1611,9 @@ input, select, textarea {
 		border: 0;
 		cursor: pointer;
 		outline: 0;
-		padding: 0.7em 1.5em 0.7em 1.5em;
+		padding: 0.5em 2.2em 0.5em 2.2em;
+		font-size: 0.8em;
+		font-weight: normal;
 	}
 
 		input[type="button"]:hover,
