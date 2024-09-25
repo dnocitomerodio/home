@@ -14,7 +14,7 @@
 
 			<!-- Nav -->
 			<nav id="nav">
-				<a href="https://dnocitomerodio.github.io/home/" class="icon solid fa-home"><span>Home</span></a>
+				<a href="#intro" class="icon solid fa-home"><span>Home</span></a>
 				<a href="#resume" class="icon solid fa-folder"><span>Resume</span></a>
 				<a href="#contact" class="icon solid fa-envelope"><span>Contact</span></a>
 				<a href="https://twitter.com/ajlkn" class="icon brands fa-twitter"><span>LinkedIn</span></a>
@@ -24,7 +24,7 @@
 			<div id="main">
 
 				<!-- Me -->
-				<article id="home" class="panel intro">
+				<article id="intro" class="panel intro">
 					<header>
 						<h1>Daniel Nocito Merodio</h1>
 						<p>Computer Engineer</p>
@@ -47,11 +47,11 @@
 					<header>
 						<h2>Contact Me</h2>
 					</header>
-					<form action="#" method="post">
+					<form action="https://formspree.io/daniel.nocito@opendeusto.es" method="POST">
 						<div>
 							<div class="row">
 								<div class="col-6 col-12-medium">
-									<input type="text" name="name" placeholder="Name" required />
+									<input type="text" name="name" placeholder="Name" required pattern="[A-Za-z\s]+" title="Only letters are allowed" />
 								</div>
 								<div class="col-6 col-12-medium">
 									<input type="email" name="email" placeholder="Email" required />
@@ -63,6 +63,7 @@
 									<textarea name="message" placeholder="Message" rows="6" required></textarea>
 								</div>
 								<div class="col-12">
+									<div class="g-recaptcha" data-sitekey="6Lcm_04qAAAAADyrv7pQn61Y_jXO_jXTnM2zCQeZ"></div>
 									<input type="submit" value="Send Message" />
 								</div>
 							</div>
@@ -85,6 +86,7 @@
 		<script src="assets/js/jquery.min.js"></script>
 		<script src="assets/js/browser.min.js"></script>
 		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
 	</body>

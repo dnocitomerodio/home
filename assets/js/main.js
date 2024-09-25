@@ -11,7 +11,8 @@
 		$wrapper = $('#wrapper'),
 		$main = $('#main'),
 		$panels = $main.children('.panel'),
-		$nav = $('#nav'), $nav_links = $nav.children('a');
+		$nav = $('#nav'), 
+		$nav_links = $nav.children('a');
 
 	// Breakpoints.
 		breakpoints({
@@ -170,4 +171,17 @@
 					$img.css('visibility', 'hidden');
 				});
 		}
+
+		document.querySelector('form').addEventListener('submit', function(event) {
+			let name = document.querySelector('input[name="name"]').value;
+			let email = document.querySelector('input[name="email"]').value;
+			let subject = document.querySelector('input[name="subject"]').value;
+			let message = document.querySelector('textarea[name="message"]').value;
+
+			if (name === "" || email === "" || subject === "" || message === "") {
+				alert("All fields must be filled out");
+				event.preventDefault();
+			}
+		});
+
 })(jQuery);
