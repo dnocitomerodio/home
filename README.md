@@ -53,7 +53,7 @@ The project is hosted on **GitHub Pages**, but you can also run it locally if yo
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/yourusername/home.git
+   git clone https://github.com/dnocitomerodio/home.git
 2. Open the `index.html` file in your browser.
 
 **Note**: Some features, such as the iframe, won't function correctly locally since they rely on a private repository. The project is primarily intended for online use.
